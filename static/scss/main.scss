@@ -1,36 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Poppins:wght@300&display=swap');
+@import './theme/inherit';
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+}
+body{
     overflow-x: hidden;
 }
 a{
     text-decoration: none;
     color: var(--black-primary);
 }
-:root{
-    --white: #fff;
-    --black-primary: #000000;
-    --brown: #c67d4e;
-    --border-color: #ddd;
-    --xs-fs: 12px;
-    --sm-fs: 14px;
-    --md-fs: 16px;
-    --lg-fs: 18px;
-    --space: 80px;
-    --weight-700: 700;
-    --small-size: 20px;
-    --medium-size: 30px;
-    --large-size: 40px;
-    --primary-shadow: 0px 2px 8px rgba(0, 0, 0, .16);
-    --secondary-shadow: 0px 20px 40px rgba(0, 0, 0, .2);
-}
 .search--box{
     padding: var(--medium-size);
     transition: all .5s ease;
     box-shadow: var(--primary-shadow);
+
     input{
         width: 100%;
         padding: 10px 40px 10px 20px;
@@ -48,7 +35,7 @@ a{
     }
     position: fixed;
     top: 0;
-    z-index: 6;
+    z-index: 200;
     background: var(--white);
     transform: translateY(-100%);
     opacity: 0;
@@ -56,6 +43,14 @@ a{
 .search--box--back{
     transform: translateY(0);
     opacity: 1;
+}
+.container--nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: var(--primary-shadow);
+    z-index: 100;
+    background: var(--white);
 }
 .nav--main{
     height: 80px;
@@ -73,7 +68,7 @@ a{
         padding-left: 0;
         li{
             font-weight: var(--weight-700);
-            margin-left: 20px;
+            margin-left: 40px;
             &:first-child{
                 margin-left: 0;
             }
@@ -151,6 +146,11 @@ a{
             }
         }
     }
+    .options--nav{
+        li{
+            margin-left: 20px !important;
+        }
+    }
 }
 .overlay{
     position: fixed;
@@ -167,6 +167,79 @@ a{
 }
 .second-model{
     @extend .overlay;
+}
+.line-down{
+    margin-bottom: var(--space-bottom);
+}
+.btn-item{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: var(--brown);
+    font-weight: bold;
+    font-size: var(--md-fs);
+    text-transform: capitalize;
+    border-radius: 4px;
+    transition: all .5s ease;
+    &:hover{
+        box-shadow: var(--primary-shadow);
+    }
+    color: var(--white);
+}
+.footer-container{
+    padding: 100px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 70px;
+    background: var(--footer-background);
+    img{
+        width: 100px;
+        height: auto;
+    }
+    ul{
+        list-style: none;
+        padding-left: 0;
+        line-height: 40px;
+        li{
+            font-weight: bold;
+        }
+    }
+    .first-footer{
+        grid-column: span 2;
+        line-height: 40px;
+        h3{
+            margin: 0;
+            padding: var(--lg-space) 0;
+            font-size: 25px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        p{
+            font-size: var(--md-fs);
+        }
+        form{
+            position: relative;
+            input{
+                width: 100%;
+                @include input();
+                padding: 10px 35px;
+            }
+            i{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                &:first-child{
+                    left: 10px;
+                }
+                &:last-child{
+                    right: 10px;
+                }
+            }
+        }
+    }
+    a{
+        color: var(--black-primary) !important;
+    }
 }
 @media screen and (max-width: 991px) {
     .nav--main{
@@ -216,6 +289,18 @@ a{
                 transform: translateX(0);
                 opacity: 1;
             }
+        }
+    }
+    .footer-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer-container{
+        display: block;
+        ul{
+            padding-top: 30px;
         }
     }
 }

@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://kit-pro.fontawesome.com/releases/v5.15.0/css/pro.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'scss/main.css' %}" />
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <form action="" method="post" class="search--box w-100">
+      <div class="position-relative">
+        <input
+          class="search--input"
+          type="text"
+          name="search"
+          placeholder="Search..."
+        />
+        <div
+          class="
+            d-flex
+            justify-content-center
+            align-items-center
+            submit--search
+          "
+        >
+          <i class="far fa-search"></i>
+        </div>
+      </div>
+    </form>
+    <div class="overlay"></div>
+    <div class="second-model"></div>
+    <div class="container--nav">
+      <nav
+        class="position-relative container d-flex align-items-center nav--main"
+      >
+        <ul class="d-flex justify-content-between align-items-center w-100">
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="logo--nav h-100">
+            <!-- <img src="{% static 'image/logo.png' %}" alt="" /> -->
+            <img src="{% static 'image/logo.png' %}" alt="" />
+          </div>
+          <div class="d-flex align-items-center middle--nav">
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">Blog</a></li>
+            <div class="align-items-center justify-content-center close--btn">
+              <i class="far fa-chevron-left"></i>
+            </div>
+          </div>
+          <div class="d-flex align-items-center options--nav">
+            <li class="search--button"><i class="far fa-search"></i></li>
+            <li>
+              <a href=""><i class="far fa-shopping-cart"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="far fa-user"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="far fa-star"></i></a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </div>
+    {% block main %} {% endblock %}
+    <footer class="footer-container">
+        <div data-aos="fade-up" class="first-footer">
+          <img src="{% static 'image/logo.png' %}"/>
+          <h3>Don't miss a thing</h3>
+          <p>Enter your email below to be the first to know about new collections and product launches.</p>
+          <form action="" method="post">
+            <i class="fal fa-envelope"></i>
+            <input type="text" placeholder="Enter your email">
+            <i class="far fa-long-arrow-alt-right"></i>
+          </form>
+        </div>
+        <ul>
+          <li>About</li>
+          <li><a href="">About us</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Blog</a></li>
+        </ul>
+        <ul>
+          <li>Information</li>
+          <li><a href="">Register</a></li>
+          <li><a href="">Login</a></li>
+          <li><a href="">My Cart</a></li>
+          <li><a href="">Wishlist</a></li>
+        </ul>
+        <ul>
+          <li>Our Store</li>
+          <li>
+            <i class="fab fa-facebook-f me-3"></i>
+            <i class="fab fa-instagram"></i>
+          </li>
+        </ul>
+    </footer>
+    <script src="{% static 'dist/main.js' %}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 200,
+        duration: 1000,
+        delay: 300
+      })
+    </script>
+    {% block script %} {% endblock %}
+  </body>
+</html>
