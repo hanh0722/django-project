@@ -1,0 +1,73 @@
+@import './theme/inherit';
+.container--collections{
+    .grid-products{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        .image-product{
+            overflow: hidden;
+            &:hover{
+                .options-product{
+                    transform: translateX(0);
+                    opacity: 1;
+                    pointer-events: visible;
+                }
+            }
+        }
+        img{
+            @include image();
+            transition: all .35s ease;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+        .product-content{
+            padding-top: var(--sm-space);
+            line-height: 35px;
+            a{
+                color: var(--black-primary) !important;
+                font-weight: bold;
+                font-size: var(--md-fs);
+            }
+            p{
+                font-size: var(--sm-fs);
+                margin: 0;
+                letter-spacing: 1px;
+                font-weight: var(--weight-900);
+                color: var(--light-gray);
+            }
+        }
+        .options-product{
+            position: absolute;
+            right: 15px;
+            top: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all .35s ease-in-out;
+            transform: translateX(100%);
+            opacity: 0;
+            pointer-events: none;
+            span{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background: var(--white);
+                transition: all .35s ease;
+                cursor: pointer;
+                &:first-child{
+                    margin-bottom: var(--md-space);
+                }
+                &:hover{
+                    background: var(--brown);
+                    color: var(--white);
+                }
+            }
+        }
+    }
+}

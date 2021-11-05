@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Collection {% endblock %}
+{% block css %} <link rel="stylesheet" href="{% static '/scss/collection.css' %}"> {% endblock %}
+{% block main %} 
+
+    {% include 'include/header.html' with  header_title="Collection" %}
+    <div class="container container--collections line-down">
+       <div class="grid-products">
+            <div class="product-container">
+                <div class="image-product position-relative">
+                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <div class="options-product">
+                        <span><i class="fal fa-shopping-cart"></i></span>
+                        <span><i class="fal fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="product-content text-center">
+                    <a href="">Notepad</a>
+                    <p>$22.00</p>
+                </div>
+            </div>
+            <div class="product-container">
+                <div class="image-product position-relative">
+                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <div class="options-product">
+                        <span><i class="fal fa-shopping-cart"></i></span>
+                        <span><i class="fal fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="product-content text-center">
+                    <a href="">Notepad</a>
+                    <p>$22.00</p>
+                </div>
+            </div>
+            <div class="product-container">
+                <div class="image-product position-relative">
+                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <div class="options-product">
+                        <span><i class="fal fa-shopping-cart"></i></span>
+                        <span><i class="fal fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="product-content text-center">
+                    <a href="">Notepad</a>
+                    <p>$22.00</p>
+                </div>
+            </div>
+            <div class="product-container">
+                <div class="image-product position-relative">
+                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <div class="options-product">
+                        <span><i class="fal fa-shopping-cart"></i></span>
+                        <span><i class="fal fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="product-content text-center">
+                    <a href="">Notepad</a>
+                    <p>$22.00</p>
+                </div>
+            </div>
+            <div class="product-container">
+                <div class="image-product position-relative">
+                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <div class="options-product">
+                        <span><i class="fal fa-shopping-cart"></i></span>
+                        <span><i class="fal fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="product-content text-center">
+                    <a href="">Notepad</a>
+                    <p>$22.00</p>
+                </div>
+            </div>
+            <div class="product-container">
+                <div class="image-product position-relative">
+                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <div class="options-product">
+                        <span><i class="fal fa-shopping-cart"></i></span>
+                        <span><i class="fal fa-star"></i></span>
+                    </div>
+                </div>
+                <div class="product-content text-center">
+                    <a href="">Notepad</a>
+                    <p>$22.00</p>
+                </div>
+            </div>
+       </div>
+       <ul class="pagination_items">
+            <li><a href="?page=1">1</a></li>
+            <li><a href="?page=2">2</a></li>
+            <li><a href="?page=3">3</a></li>
+       </ul>
+    </div>
+{% endblock %}

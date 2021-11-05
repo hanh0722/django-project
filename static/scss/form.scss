@@ -1,0 +1,96 @@
+@import './theme/inherit';
+.container-form{
+    max-width: 600px;
+    background: var(--white);
+    box-shadow: var(--primary-shadow);
+    padding: var(--lg-space);
+    border-radius: 10px;
+    form{
+        label{
+            padding-bottom: var(--lg-space);
+            font-weight: var(--weight-900);
+            font-size: var(--sm-fs);
+        }
+        input{
+            padding: 10px var(--md-space);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            transition: all .35s ease;
+            &:hover{
+                box-shadow: var(--primary-shadow);
+            }
+        }
+        a{
+            text-align: center;
+            color: var(--black-primary) !important;
+            transition: all .15s ease;
+            &:hover{
+                color: var(--brown) !important;
+            }
+        }
+        button{
+            margin-top: var(--md-space);
+            margin-bottom: var(--md-space);
+        }
+    }
+}
+.error-text{
+    color: red !important;
+}
+.error-input{
+    border-color: red !important;
+}
+.show-password{
+    .container-checkbox{
+        width: var(--lg-space);
+        height: var(--lg-space);
+        background: transparent;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+    }
+    p{
+        margin-bottom: 0;
+        padding-left: var(--sm-space);
+        font-size: var(--sm-fs);
+        cursor: pointer;
+    }
+    .check-box{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: var(--brown);
+        transition: all .35s ease;
+        opacity: 0;
+        pointer-events: none;
+        i{
+            font-size: var(--xs-fs);
+            color: var(--white);
+        }
+    }
+    .check-box-open{
+        opacity: 1;
+        pointer-events: visible;
+
+    }
+}
+.container--position{
+    i{
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: var(--sm-fs);
+    }
+    input{
+        width: 100%;
+        padding-left: 40px !important;
+    }
+}
+.container-input{
+    margin-bottom: var(--md-space);
+}

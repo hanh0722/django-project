@@ -42,9 +42,10 @@ const SearchBarInput = () => {
     input.addEventListener('blur', () => {
         isTouched = true;
     })
-    input.addEventListener('input', (event: any) => {
+    input.addEventListener('input', (event: Event) => {
+        const target = event.target as HTMLInputElement;
         let isValid: boolean = true;
-        const value: string = event.target.value;
+        const value: string = target.value;
         if(isTouched && value.trim().length <= 0){
             isValid = false;
         }
@@ -78,3 +79,28 @@ const getAnimatedListFooter = () => {
 
 }
 getAnimatedListFooter();
+
+
+const getCartHandler = () => {
+    const cart = document.querySelector('.cart-action')!;
+    const model = document.querySelector('.cart-model')!;
+    const cartItems = document.querySelector('.cart-container')!;
+    const removeBtn = document.querySelector('.close--cart')!;
+    const toggleAllClass = () => {
+        helperToggleClassName(model, 'block--overlay');
+        helperToggleClassName(cartItems, 'cart-container-back');
+    }
+
+    cart.addEventListener('click', () => {
+        toggleAllClass();
+    });
+    model.addEventListener('click', () => {
+        toggleAllClass();
+    })
+    removeBtn.addEventListener('click', () => {
+        toggleAllClass();
+    })
+    
+}
+
+getCartHandler();

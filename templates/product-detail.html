@@ -1,0 +1,138 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static '/scss/product-detail.css' %}" />
+{% endblock %} {% block title %} Product Detail {% endblock %} {% block main %}
+{% include 'include/header.html' with header_title="Product detail" %}
+<div class="container container-product line-down">
+  <div class="row">
+    <div class="left-side col-xs-12 col-sm-12 col-lg-6 col-md-6">
+      <div class="swiper mySwiper2 swiper-top">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+        </div>
+        <div class="swiper-button-next swiper-btn-next"></div>
+        <div class="swiper-button-prev swiper-btn-prev"></div>
+      </div>
+      <div thumbsSlider="" class="swiper mySwiper swiper-below">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/indoor-3.jpeg' %}" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <form
+      method="post"
+      action=""
+      class="right-side col-xs-12 col-sm-12 col-md-6 col-lg-6"
+    >
+      <div class="container-introduction">
+        <h3>Lorem ipsum dolor sit amet.</h3>
+        <p class="price--product">$35.00</p>
+        <p class="type--product">Type: Indoor</p>
+        <button type="submit" class="btn-item">Add To Cart</button>
+      </div>
+
+      <ul class="d-flex align-items-center list--options">
+        <li index="1"><i class="far fa-question-circle"></i> Ask A Question</li>
+        <li index="2"><i class="far fa-share-alt"></i> Share</li>
+      </ul>
+      
+      <div class="methods--payment">
+        <h4>We accept all payments!</h4>
+        <img src="{% static '/image/list-card.png' %}" alt="">
+      </div>
+    </form>
+    <form
+      class="
+        question
+        text-center
+        d-flex
+        flex-column
+        justify-content-start
+        align-items-start
+      "
+      action=""
+    >
+      <div
+        class="
+          close--btn
+          close--btn--form
+          d-flex
+          justify-content-center
+          align-items-center
+          rounded-circle
+        "
+      >
+        <i class="far fa-times"></i>
+      </div>
+      <div class="container--content">
+        <h3 class="w-100">Ask A Question</h3>
+
+        <label for="name">Name</label>
+        <input id="name" type="text" required placeholder="Name..." />
+
+        <label for="phone">Phone Number</label>
+        <input
+          id="phone"
+          type="number"
+          required
+          placeholder="Phone Number..."
+        />
+        <label for="email">Email</label>
+        <input type="email" required placeholder="Your Email..." />
+        <textarea
+          name="message"
+          id=""
+          cols="30"
+          rows="5"
+          placeholder="Your Message..."
+        ></textarea>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block script %}
+<script src="{% static '/dist/product-detail.js' %}"></script>
+<script type="module">
+  import Swiper from "https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js";
+
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 20,
+    slidesPerView: 4,
+    watchSlidesProgress: true,
+    loop: true,
+    freeMode: true,
+  });
+  var swiper2 = new Swiper(".mySwiper2", {
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next.swiper-btn-next",
+      prevEl: ".swiper-button-prev.swiper-btn-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
+</script>
+{% endblock %}

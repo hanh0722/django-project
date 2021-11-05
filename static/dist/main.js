@@ -35,8 +35,9 @@ const SearchBarInput = () => {
         isTouched = true;
     });
     input.addEventListener('input', (event) => {
+        const target = event.target;
         let isValid = true;
-        const value = event.target.value;
+        const value = target.value;
         if (isTouched && value.trim().length <= 0) {
             isValid = false;
         }
@@ -67,3 +68,23 @@ const getAnimatedListFooter = () => {
     });
 };
 getAnimatedListFooter();
+const getCartHandler = () => {
+    const cart = document.querySelector('.cart-action');
+    const model = document.querySelector('.cart-model');
+    const cartItems = document.querySelector('.cart-container');
+    const removeBtn = document.querySelector('.close--cart');
+    const toggleAllClass = () => {
+        helperToggleClassName(model, 'block--overlay');
+        helperToggleClassName(cartItems, 'cart-container-back');
+    };
+    cart.addEventListener('click', () => {
+        toggleAllClass();
+    });
+    model.addEventListener('click', () => {
+        toggleAllClass();
+    });
+    removeBtn.addEventListener('click', () => {
+        toggleAllClass();
+    });
+};
+getCartHandler();

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{% block title %} {% endblock %}</title>
     <link
       rel="stylesheet"
       href="https://kit-pro.fontawesome.com/releases/v5.15.0/css/pro.min.css"
@@ -47,6 +47,7 @@
     </form>
     <div class="overlay"></div>
     <div class="second-model"></div>
+    <div class="cart-model"></div>
     <div class="container--nav">
       <nav
         class="position-relative container d-flex align-items-center nav--main"
@@ -59,24 +60,23 @@
           </div>
           <div class="logo--nav h-100">
             <!-- <img src="{% static 'image/logo.png' %}" alt="" /> -->
-            <img src="{% static 'image/logo.png' %}" alt="" />
+            <a href="{% url 'home_page' %}"><img src="{% static 'image/logo.png' %}" alt="" /></a>
           </div>
           <div class="d-flex align-items-center middle--nav">
-            <li><a href="">Home</a></li>
-            <li><a href="">Shop</a></li>
-            <li><a href="">Products</a></li>
-            <li><a href="">Blog</a></li>
+            <li><a href="{% url 'home_page' %}">Home</a></li>
+            <li><a href="{% url 'collection' %}">Shop</a></li>
+            <li>Products</li>
             <div class="align-items-center justify-content-center close--btn">
               <i class="far fa-chevron-left"></i>
             </div>
           </div>
           <div class="d-flex align-items-center options--nav">
             <li class="search--button"><i class="far fa-search"></i></li>
-            <li>
-              <a href=""><i class="far fa-shopping-cart"></i></a>
+            <li class="cart-action">
+              <i class="far fa-shopping-cart"></i>
             </li>
             <li>
-              <a href=""><i class="far fa-user"></i></a>
+              <a href="{% url 'sign-in' %}"><i class="far fa-user"></i></a>
             </li>
             <li>
               <a href=""><i class="far fa-star"></i></a>
@@ -84,6 +84,35 @@
           </div>
         </ul>
       </nav>
+    </div>
+    <div class="cart-container d-flex flex-column justify-content-between">
+      <h3>Shopping Cart</h3>
+      <div class="close--cart d-flex justify-content-center align-items-center">
+        <i class="far fa-angle-right"></i>
+      </div>
+      <div class="items-in-cart">
+      <div class="cart-item">
+        <div class="container-image">
+          <img src="{% static 'image/indoor-1.jpeg' %}" alt="">
+        </div>
+        <div class="cart-options">
+          <a href="">Lorem, ipsum dolor.</a>
+          <p class="type-item">Style: Indoor</p>
+          <div class="price-item d-flex align-items-center">
+            <p>$35.00</p>
+            <div class="change-quantity d-flex align-items-center">
+              <div>-</div>
+              <div>3</div>
+              <div>+</div>
+            </div>
+          </div>
+          <span><i class="far fa-trash-alt"></i></span>
+        </div>
+      </div>
+      </div>
+      <div class="btn-checkout">
+        <a href=""><button class="btn-item w-100">Checkout</button></a>
+      </div>
     </div>
     {% block main %} {% endblock %}
     <footer class="footer-container">

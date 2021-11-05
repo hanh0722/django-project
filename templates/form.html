@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Login {% endblock %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'scss/form.css' %}"> {% endblock %}
+
+{% block main %}
+    {% if signIn %} 
+        {% include 'include/header.html' with header_title="Login" %} 
+    {% else %}
+        {% include 'include/header.html' with header_title="Register" %}
+    {% endif %}
+    <div class="container container-form line-down">
+        <form class="d-flex flex-column" action="" method="post">
+            {% if not signIn %}
+                <label for="name">Name</label>
+                <div class="container-input">
+                    <div class="position-relative container--position">
+                        <i class="far fa-signature"></i>
+                        <input type="text" required id="name" name="name" placeholder="Name">
+                    </div>
+                </div>
+            {% endif %}
+            <label for="email">Email</label>
+            <div class="container-input">
+                <div class="position-relative container--position">
+                    <i class="far fa-envelope-open"></i>
+                    <input type="email" required id="email" name="email" placeholder="Email"/>
+                </div>
+            </div>
+            <label for="password">Password</label>
+            <div class="container-input">
+                <div class="position-relative container--position">
+                    <i class="far fa-lock-alt"></i>
+                    <input type="password" required id="password" name="password" placeholder="Password"/>
+                </div>
+            </div>
+            <div class="d-flex align-items-center show-password">
+                <span class="container-checkbox">
+                    <span class="d-flex justify-content-center align-items-center check-box"><i class="fal fa-check"></i></span>
+                </span>
+                <p>Show Password</p>
+            </div>
+            <button type="submit" class="w-100 btn-item">
+                {% if signIn %} 
+                    Sign In
+                {% else %}
+                    Register 
+                {% endif %}
+               
+            </button>
+            {% if signIn %}
+                <a href="{% url 'register' %}">Haven't had an account? Sign up</a>
+            {% else %}
+                <a href="{% url 'sign-in'%}">Have an account? Sign in</a>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'dist/form.js' %}"></script>
+{% endblock %}
