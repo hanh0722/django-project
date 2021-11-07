@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="product-content text-center">
-                    <a href="">{{ product.title }}</a>
+                    <a href="{{product.slug}}">{{ product.title }}</a>
                     <p>${{ product.price }}</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
        <ul class="pagination_items">
         {% if has_previous_page %}<li><a href="?page=1"><i class="far fa-angle-double-left"></i></a></li>{% endif %}
         {% for value in range_pagination %} 
-            <li class="{% if value == current_page %}active-pagination{% endif%}"><a href="?page={{ value }}">{{value}}</a></li>
+            <li class="{% if value == current_page %}active-pagination{%endif%}"><a href="?page={{ value }}">{{value}}</a></li>
         {% endfor %}
         {% if has_next_page %}<li><a href="?page={{ next_page }}"><i class="far fa-angle-double-right"></i></a></li>{% endif %}
    </ul>

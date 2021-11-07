@@ -24,5 +24,7 @@ def shop(request):
     })
 
 def productDetail(request, slug_product):
-    print(slug_product)
-    return render(request, 'product-detail.html')
+    item_data = Item.objects.get(slug=slug_product)
+    return render(request, 'product-detail.html', {
+        'product': item_data
+    })
