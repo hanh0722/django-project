@@ -94,3 +94,19 @@
 .container-input{
     margin-bottom: var(--md-space);
 }
+.message-sidebar{
+    padding: 20px;
+    margin: 0;
+    background: #f57c7c;
+    p{
+        line-height: normal;
+        color: white !important;
+        margin-bottom: 0;
+    }
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.message-success{
+    background: #5DB754;
+    color: white !important;
+}

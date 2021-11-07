@@ -8,16 +8,7 @@
       <div class="swiper mySwiper2 swiper-top">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
+            <img src="{{ product.image.url }}" alt="">
           </div>
         </div>
         <div class="swiper-button-next swiper-btn-next"></div>
@@ -26,16 +17,7 @@
       <div thumbsSlider="" class="swiper mySwiper swiper-below">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" />
+            <img src="{{ product.image.url }}" />
           </div>
         </div>
       </div>
@@ -46,9 +28,9 @@
       class="right-side col-xs-12 col-sm-12 col-md-6 col-lg-6"
     >
       <div class="container-introduction">
-        <h3>Lorem ipsum dolor sit amet.</h3>
-        <p class="price--product">$35.00</p>
-        <p class="type--product">Type: Indoor</p>
+        <h3>{{ product.title }}</h3>
+        <p class="price--product">${{ product.price }}</p>
+        <p class="type--product">Type: {{ product.category.name_category }}</p>
         <button type="submit" class="btn-item">Add To Cart</button>
       </div>
 

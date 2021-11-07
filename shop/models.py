@@ -1,9 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.deletion import CASCADE
 # Create your models here.
-
-
 
 
 class Category(models.Model):
@@ -19,21 +15,13 @@ class Item(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     slug = models.SlugField(blank=False, null=False, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
-
-
+    image = models.ImageField(upload_to='images')
+    
     def __str__(self):
         return self.title
 
-class ImageProduct(models.Model):
-    image = models.ImageField(upload_to='images')
-    product = models.ForeignKey(Item, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.product.title
 
-class CartItem(models.Model):
-    cart = models.ForeignKey(Item, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
 
-    def __str__(self):
-        return self.quantity
+
+
