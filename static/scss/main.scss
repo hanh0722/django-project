@@ -414,6 +414,12 @@ a {
   transform: translateX(0);
   opacity: 1;
 }
+.active-pagination{
+  background: var(--brown) !important;
+  a{
+    color: var(--white) !important;
+  }
+}
 @media screen and (max-width: 991px) {
   .nav--main {
     .hamburger {

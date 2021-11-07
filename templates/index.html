@@ -42,47 +42,18 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide">
-            <div class="swiper-image">
-              <img src="{% static 'image/indoor-1.jpeg' %}" alt="">
-            </div>
-            <div class="swiper-options">
-              <a href="">Money Tree Palm</a>
-              <p>$35.00</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-2.jpeg' %}" alt="">
-            <div class="swiper-options">
-              <a href="">Money Tree Palm</a>
-              <p>$35.00</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-3.jpeg' %}" alt="">
-            <div class="swiper-options">
-              <a href="">Money Tree Palm</a>
-              <p>$35.00</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-4.jpeg' %}" alt="">
-            <div class="swiper-options">
-              <a href="">Money Tree Palm</a>
-              <p>$35.00</p>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <img src="{% static 'image/indoor-5.jpeg' %}" alt="">
-            <div class="swiper-options">
-              <a href="">Money Tree Palm</a>
-              <p>$35.00</p>
-            </div>
-          </div>
+          {% for product in products %}
+              <div class="swiper-slide">
+                <img src="{{ product.image.url }}" alt="">
+                <div class="swiper-options">
+                  <a href="">{{ product.title }}</a>
+                  <p>{{ product.price }}</p>
+                </div>
+              </div>
+            {% endfor %}
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
-
         <!-- If we need navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
@@ -93,12 +64,14 @@
         <div data-aos="fade-right" class="left-bundle">
           <h5>Bundle & Save</h5>
           <h2>Build Your Own Basket From $100</h2>
+          {% for item in item_everyday %}
           <div class="line-product d-flex align-items-center">
-            <span>1</span>
-            <img src="{% static 'image/outdoor-3.jpeg' %}" alt="">
-            <a href="">Lorem ipsum dolor sit amet.</a>
-            <p>$35.00</p>
+            <span>{{forloop.counter}}</span>
+            <img src="{{ item.image.url }}" alt="">
+            <a href="">{{ item.title }}</a>
+            <p>${{ item.price }}</p>
           </div>
+          {% endfor %}
           <button class="btn-item w-100">Add To Cart</button>
         </div>
         <div data-aos="zoom-in" class="right-bundle">

@@ -578,6 +578,14 @@ a {
   opacity: 1;
 }
 
+.active-pagination {
+  background: var(--brown) !important;
+}
+
+.active-pagination a {
+  color: var(--white) !important;
+}
+
 @media screen and (max-width: 991px) {
   .nav--main .hamburger {
     display: -webkit-box;

@@ -8,89 +8,28 @@
     {% include 'include/header.html' with  header_title="Collection" %}
     <div class="container container--collections line-down">
        <div class="grid-products">
-            <div class="product-container">
+           {% for product in products %}
+           <div class="product-container">
                 <div class="image-product position-relative">
-                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
+                    <img src="{{ product.image.url }}" alt="">
                     <div class="options-product">
                         <span><i class="fal fa-shopping-cart"></i></span>
                         <span><i class="fal fa-star"></i></span>
                     </div>
                 </div>
                 <div class="product-content text-center">
-                    <a href="">Notepad</a>
-                    <p>$22.00</p>
+                    <a href="">{{ product.title }}</a>
+                    <p>${{ product.price }}</p>
                 </div>
             </div>
-            <div class="product-container">
-                <div class="image-product position-relative">
-                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
-                    <div class="options-product">
-                        <span><i class="fal fa-shopping-cart"></i></span>
-                        <span><i class="fal fa-star"></i></span>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <a href="">Notepad</a>
-                    <p>$22.00</p>
-                </div>
-            </div>
-            <div class="product-container">
-                <div class="image-product position-relative">
-                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
-                    <div class="options-product">
-                        <span><i class="fal fa-shopping-cart"></i></span>
-                        <span><i class="fal fa-star"></i></span>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <a href="">Notepad</a>
-                    <p>$22.00</p>
-                </div>
-            </div>
-            <div class="product-container">
-                <div class="image-product position-relative">
-                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
-                    <div class="options-product">
-                        <span><i class="fal fa-shopping-cart"></i></span>
-                        <span><i class="fal fa-star"></i></span>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <a href="">Notepad</a>
-                    <p>$22.00</p>
-                </div>
-            </div>
-            <div class="product-container">
-                <div class="image-product position-relative">
-                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
-                    <div class="options-product">
-                        <span><i class="fal fa-shopping-cart"></i></span>
-                        <span><i class="fal fa-star"></i></span>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <a href="">Notepad</a>
-                    <p>$22.00</p>
-                </div>
-            </div>
-            <div class="product-container">
-                <div class="image-product position-relative">
-                    <img src="{% static '/image/indoor-3.jpeg' %}" alt="">
-                    <div class="options-product">
-                        <span><i class="fal fa-shopping-cart"></i></span>
-                        <span><i class="fal fa-star"></i></span>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <a href="">Notepad</a>
-                    <p>$22.00</p>
-                </div>
-            </div>
+           {% endfor %}
        </div>
        <ul class="pagination_items">
-            <li><a href="?page=1">1</a></li>
-            <li><a href="?page=2">2</a></li>
-            <li><a href="?page=3">3</a></li>
-       </ul>
+        {% if has_previous_page %}<li><a href="?page=1"><i class="far fa-angle-double-left"></i></a></li>{% endif %}
+        {% for value in range_pagination %} 
+            <li class="{% if value == current_page %}active-pagination{% endif%}"><a href="?page={{ value }}">{{value}}</a></li>
+        {% endfor %}
+        {% if has_next_page %}<li><a href="?page={{ next_page }}"><i class="far fa-angle-double-right"></i></a></li>{% endif %}
+   </ul>
     </div>
 {% endblock %}

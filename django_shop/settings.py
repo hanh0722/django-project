@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing',
+    'shop',
+    'checkout',
+    'cart',
+    'authorization'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+MEDIA_ROOT = BASE_DIR / 'uploads'
+
+MEDIA_URL = '/files/'
