@@ -16,7 +16,7 @@
     .left-landing{
         line-height: 40px;
         h1{
-            font-size: var(--lg-fs);
+            font-size: var(--md-fs);
             font-weight: bold;
         }
         span{
@@ -29,9 +29,11 @@
             font-size: var(--md-fs);
         }
         h2{
-            font-size: 70px;
-            padding-top: var(--lg-space);
+            font-size: 50px;
+            font-weight: bold;
+            padding: var(--lg-space) 0;
             text-transform: capitalize;
+            line-height: 60px;
         }
     }
     .button{
@@ -76,8 +78,10 @@
             font-size: 20px;
         }
         h3{
-            font-size: 50px;
+            font-size: 40px;
             padding: var(--md-space) 0;
+            font-weight: bold;
+            line-height: 60px;
         }
         max-width: 500px;
         line-height: 35px;
@@ -276,6 +280,9 @@
     .container--outdoor{
         .grid-column{
             grid-template-columns: repeat(1, 1fr);
+            .outdoor-right{
+                max-width: 100%;
+            }
         }
     }
     .container-bundle{
@@ -287,6 +294,7 @@
             gap: var(--space);
         }
     }
+    
 }
 @media screen and (max-width: 768px) {
     .container-distribute{

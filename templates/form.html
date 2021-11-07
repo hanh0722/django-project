@@ -12,6 +12,7 @@
     {% else %}
         {% include 'include/header.html' with header_title="Register" %}
     {% endif %}
+    
     <div class="container container-form line-down">
         <form class="d-flex flex-column" action="{% if not signIn %} {% url 'create-user' %} {% else %} {% url 'login' %} {% endif %}" method="post">
             {% csrf_token %}

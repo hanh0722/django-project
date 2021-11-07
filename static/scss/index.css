@@ -54,7 +54,7 @@
 }
 
 .container--items .left-landing h1 {
-  font-size: var(--lg-fs);
+  font-size: var(--md-fs);
   font-weight: bold;
 }
 
@@ -69,9 +69,11 @@
 }
 
 .container--items .left-landing h2 {
-  font-size: 70px;
-  padding-top: var(--lg-space);
+  font-size: 50px;
+  font-weight: bold;
+  padding: var(--lg-space) 0;
   text-transform: capitalize;
+  line-height: 60px;
 }
 
 .container--items .button {
@@ -130,8 +132,10 @@
 }
 
 .container--outdoor .outdoor-right h3 {
-  font-size: 50px;
+  font-size: 40px;
   padding: var(--md-space) 0;
+  font-weight: bold;
+  line-height: 60px;
 }
 
 .container--outdoor .outdoor-right p {
@@ -389,6 +393,9 @@
   .container--outdoor .grid-column {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+  }
+  .container--outdoor .grid-column .outdoor-right {
+    max-width: 100%;
   }
   .container-bundle {
     text-align: center;

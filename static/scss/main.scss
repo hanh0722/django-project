@@ -53,7 +53,9 @@ a {
   background: var(--white);
 }
 .nav--main {
-  height: 80px;
+  height: 70px;
+  padding: 0 80px;
+  font-size: var(--sm-fs !important);
   .logo--nav {
     width: 100px;
     height: 75px;
@@ -247,8 +249,8 @@ a {
   margin-top: 120px;
   text-align: center;
   h3 {
-    padding-bottom: var(--space);
-    font-size: 40px;
+    padding-bottom: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -420,6 +422,29 @@ a {
     color: var(--white) !important;
   }
 }
+.btn-darkmode{
+  width: 40px;
+  height: 18px;
+  background: red;
+  border-radius: 12px;
+  position: relative;
+  i{
+    position: absolute;
+    top: calc(50% + 1px);
+    transform: translateY(-50%);
+    font-size: 12px;
+    left: 2px;
+  }
+  .button-dark{
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+}
 @media screen and (max-width: 991px) {
   .nav--main {
     .hamburger {
@@ -432,7 +457,7 @@ a {
       align-items: flex-start !important;
       li {
         margin-left: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         transition: all 0.3s ease;
         &:nth-of-type(n) {
           transition-delay: 0.5s;
@@ -448,7 +473,7 @@ a {
       width: 50%;
       height: 100%;
       box-shadow: var(--secondary-shadow);
-      transition: all 0.75s ease-in-out;
+      transition: all 0.5s ease-in-out;
       transform: translateX(-100%);
     }
     .close--btn {
