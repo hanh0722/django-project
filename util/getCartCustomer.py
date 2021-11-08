@@ -13,10 +13,9 @@ def listOfDictToObject(dictionary: dict):
 
 def getCartOfCustomer(request):
     if not isAuthenticated(request):
-        return []
+        return None
 
     customer = Customer.objects.get(user_id=request.user.id)
     list__items__filter = CartCustomer.objects.filter(customer_id=customer.id).select_related('item')
     # innerJoin command SQL
-    print(list__items__filter.first().__dict__)
     return list__items__filter

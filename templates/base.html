@@ -56,31 +56,39 @@
         <i class="far fa-angle-right"></i>
       </div>
       <div class="items-in-cart">
-        {% for item in cart_user %}
-        <div class="cart-item">
-          <div class="container-image">
-            <img src="{{ item.item.image.url }}" alt="" />
-          </div>
-          <div class="cart-options">
-            <a href="">{{ item.item.title }}</a>
-            <p class="type-item">Style: {{ item.item.category}}</p>
-            <div class="price-item d-flex align-items-center">
-              <p>${{ item.item.price }}</p>
-              <div class="change-quantity d-flex align-items-center">
-                <form action="">
-                  <div class="decrement">-</div>
-                </form>
-                <div>{{ item.quantity }}</div>
-                <form method="post" action="{% url 'add-to-cart' item.item_id %}">
-                  {% csrf_token %}
-                  <div class="increment">+</div>
-                </form>
-              </div>
+        {% if cart_user %}
+          {% for item in cart_user %}
+          <div class="cart-item">
+            <div class="container-image">
+              <img src="{{ item.item.image.url }}" alt="" />
             </div>
-            <span><i class="far fa-trash-alt"></i></span>
+            <div class="cart-options">
+              <a href="">{{ item.item.title }}</a>
+              <p class="type-item">Style: {{ item.item.category}}</p>
+              <div class="price-item d-flex align-items-center">
+                <p>${{ item.item.price }}</p>
+                <div class="change-quantity d-flex align-items-center">
+                  <form action="{% url 'remove-item' item.item_id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="decrement">-</button>
+                  </form>
+                  <div>{{ item.quantity }}</div>
+                  <form method="post" action="{% url 'add-to-cart' item.item_id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="increment">+</button>
+                  </form>
+                </div>
+              </div>
+              <form action="{% url 'delete-item' item.item_id %}" method="post">
+                {% csrf_token %}
+                <span class="trash-btn"><i class="far fa-trash-alt"></i></span>
+              </form>
+            </div>
           </div>
-        </div>
-        {% endfor %}
+          {% endfor %}
+          {% else %}
+            <p>Your cart is empty!</p>
+        {% endif %}
       </div>
       <div class="btn-checkout">
         <a href=""><button class="btn-item w-100">Checkout</button></a>

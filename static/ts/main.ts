@@ -105,15 +105,14 @@ const getCartHandler = () => {
 
 getCartHandler();
 
-const submitFormHandler = () => {
-    const button = document.querySelectorAll('.increment')!;
-    const submitForm = (btn: Element) => {
+const removeItemWithForm = () => {
+    const button = document.querySelectorAll('.trash-btn')!;
+    const submitFormHandler = (btn: Element) => {
         const form = btn.parentElement as HTMLFormElement;
         form.submit();
     }
     button.forEach(btn => {
-        btn.addEventListener('click', submitForm.bind(null, btn));
+        btn.addEventListener('click', submitFormHandler.bind(null, btn));
     })
 }
-
-submitFormHandler();
+removeItemWithForm();

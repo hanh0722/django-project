@@ -3,9 +3,11 @@ from .models import Item
 import math
 from django.core.paginator import Paginator
 from util.isAuthenticated import isAuthenticated
+from util.getCartCustomer import getCartOfCustomer
 # Create your views here.
 
 def shop(request):
+    cart_user = getCartOfCustomer(request)
     page = request.GET.get('page')
     page = page or 1
     items_in_store = Item.objects.all().order_by('id').reverse()
@@ -22,12 +24,15 @@ def shop(request):
         'has_next_page': page_product.has_next(),
         'next_page': int(page) + 1,
         'current_page': int(page),
-        'isAuthenticated': isAuthenticated(request)
+        'isAuthenticated': isAuthenticated(request),
+        'cart_user': cart_user
     })
 
 def productDetail(request, slug_product):
+    cart_user = getCartOfCustomer(request)
     item_data = Item.objects.get(slug=slug_product)
     return render(request, 'product-detail.html', {
         'product': item_data,
-        'isAuthenticated': isAuthenticated(request)
+        'isAuthenticated': isAuthenticated(request),
+        'cart_user': cart_user
     })

@@ -382,7 +382,7 @@ a {
     }
     .change-quantity {
       padding-left: var(--md-space);
-      div {
+      button, div {
         width: 35px;
         height: 35px;
         font-size: var(--md-fs);
@@ -392,6 +392,7 @@ a {
         background: rgba($color: #000000, $alpha: 0.1);
         cursor: pointer;
         font-size: var(--sm-fs);
+        border: none;
       }
     }
     span {
@@ -447,8 +448,14 @@ a {
     border-radius: 50%;
   }
 }
+@media screen and (max-width: 1200px) {
+  .cart-container{
+    width: 45%;
+  }
+}
 @media screen and (max-width: 991px) {
   .nav--main {
+    padding: 0 40px;
     .hamburger {
       display: flex;
     }
@@ -509,7 +516,7 @@ a {
   .nav--main {
     .options--nav {
       li {
-        margin-left: 10px !important;
+        margin-left: 15px !important;
       }
     }
   }
@@ -528,6 +535,17 @@ a {
     width: 100%;
     .cart-item {
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  }
+  .nav--main{
+    padding: 0 30px;
+    .options--nav{
+      li{
+        margin-left: 15px !important;
+        &:last-child, &:nth-of-type(3){
+          display: none;
+        }
+      }
     }
   }
 }
