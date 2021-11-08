@@ -1,6 +1,7 @@
 from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
+from .models import Customer
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 # Create your views here.
@@ -30,6 +31,8 @@ def registerUser(request):
             messages.warning(request, 'Email is existed')
             return redirect('/account/register')
         user = User.objects.create_user(username = email, email = email, password = password, last_name = name)
+        customer = Customer(user=user)
+        customer.save()
         return render(request, 'form.html', {
             'signIn': True,
             'message': 'Register Successfully',

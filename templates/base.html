@@ -48,36 +48,42 @@
     <div class="overlay"></div>
     <div class="second-model"></div>
     <div class="cart-model"></div>
-    {% include 'include/navigation.html' %}
+    {% include 'include/navigation.html' with isAuthenticated=isAuthenticated %}
+    {% if isAuthenticated %}
     <div class="cart-container d-flex flex-column justify-content-between">
       <h3>Shopping Cart</h3>
       <div class="close--cart d-flex justify-content-center align-items-center">
         <i class="far fa-angle-right"></i>
       </div>
       <div class="items-in-cart">
-      <div class="cart-item">
-        <div class="container-image">
-          <img src="{% static 'image/indoor-1.jpeg' %}" alt="">
-        </div>
-        <div class="cart-options">
-          <a href="">Lorem, ipsum dolor.</a>
-          <p class="type-item">Style: Indoor</p>
-          <div class="price-item d-flex align-items-center">
-            <p>$35.00</p>
-            <div class="change-quantity d-flex align-items-center">
-              <div>-</div>
-              <div>3</div>
-              <div>+</div>
+        {% if cart_user.length > 0 %}
+          {% for item in cart_user %}
+            <div class="cart-item">
+              <div class="container-image">
+                <img src="" alt="">
+              </div>
+              <div class="cart-options">
+                <a href="">Lorem, ipsum dolor.</a>
+                <p class="type-item">Style: Indoor</p>
+                <div class="price-item d-flex align-items-center">
+                  <p>$35.00</p>
+                  <div class="change-quantity d-flex align-items-center">
+                    <div>-</div>
+                    <div>3</div>
+                    <div>+</div>
+                  </div>
+                </div>
+                <span><i class="far fa-trash-alt"></i></span>
+              </div>
             </div>
-          </div>
-          <span><i class="far fa-trash-alt"></i></span>
-        </div>
-      </div>
+          {% endfor %}
+        {% endif %}
       </div>
       <div class="btn-checkout">
         <a href=""><button class="btn-item w-100">Checkout</button></a>
       </div>
     </div>
+    {% endif %}
     {% block main %} {% endblock %}
     <footer class="footer-container">
         <div data-aos="fade-up" class="first-footer">

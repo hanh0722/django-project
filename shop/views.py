@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Item
 import math
 from django.core.paginator import Paginator
+from util.isAuthenticated import isAuthenticated
 # Create your views here.
 
 def shop(request):
@@ -20,11 +21,13 @@ def shop(request):
         'has_previous_page': page_product.has_previous(),
         'has_next_page': page_product.has_next(),
         'next_page': int(page) + 1,
-        'current_page': int(page)
+        'current_page': int(page),
+        'isAuthenticated': isAuthenticated(request)
     })
 
 def productDetail(request, slug_product):
     item_data = Item.objects.get(slug=slug_product)
     return render(request, 'product-detail.html', {
-        'product': item_data
+        'product': item_data,
+        'isAuthenticated': isAuthenticated(request)
     })
