@@ -315,7 +315,7 @@ a {
   @extend .second-model;
 }
 .cart-container {
-  transition: all 0.75s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
   transform: translateX(100%);
   opacity: 0;
   position: fixed;
@@ -344,10 +344,9 @@ a {
     align-items: center;
     position: relative;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 30px;
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    padding: 30px 0;
+    &:first-child{
+      padding-top: 0;
     }
   }
   .close--cart {
@@ -375,6 +374,7 @@ a {
       color: var(--black-primary) !important;
       font-weight: bold;
       font-size: var(--md-fs);
+      text-transform: capitalize;
     }
     p {
       font-size: var(--sm-fs);
@@ -391,6 +391,7 @@ a {
         align-items: center;
         background: rgba($color: #000000, $alpha: 0.1);
         cursor: pointer;
+        font-size: var(--sm-fs);
       }
     }
     span {
@@ -402,7 +403,8 @@ a {
       cursor: pointer;
       position: absolute;
       right: 0;
-      bottom: 35px;
+      bottom: 30px;
+      font-size: var(--sm-fs);
     }
   }
 }

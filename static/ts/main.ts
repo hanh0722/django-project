@@ -104,3 +104,16 @@ const getCartHandler = () => {
 }
 
 getCartHandler();
+
+const submitFormHandler = () => {
+    const button = document.querySelectorAll('.increment')!;
+    const submitForm = (btn: Element) => {
+        const form = btn.parentElement as HTMLFormElement;
+        form.submit();
+    }
+    button.forEach(btn => {
+        btn.addEventListener('click', submitForm.bind(null, btn));
+    })
+}
+
+submitFormHandler();

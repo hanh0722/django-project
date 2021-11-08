@@ -56,66 +56,71 @@
         <i class="far fa-angle-right"></i>
       </div>
       <div class="items-in-cart">
-        {% if cart_user.length > 0 %}
-          {% for item in cart_user %}
-            <div class="cart-item">
-              <div class="container-image">
-                <img src="" alt="">
-              </div>
-              <div class="cart-options">
-                <a href="">Lorem, ipsum dolor.</a>
-                <p class="type-item">Style: Indoor</p>
-                <div class="price-item d-flex align-items-center">
-                  <p>$35.00</p>
-                  <div class="change-quantity d-flex align-items-center">
-                    <div>-</div>
-                    <div>3</div>
-                    <div>+</div>
-                  </div>
-                </div>
-                <span><i class="far fa-trash-alt"></i></span>
+        {% for item in cart_user %}
+        <div class="cart-item">
+          <div class="container-image">
+            <img src="{{ item.item.image.url }}" alt="" />
+          </div>
+          <div class="cart-options">
+            <a href="">{{ item.item.title }}</a>
+            <p class="type-item">Style: {{ item.item.category}}</p>
+            <div class="price-item d-flex align-items-center">
+              <p>${{ item.item.price }}</p>
+              <div class="change-quantity d-flex align-items-center">
+                <form action="">
+                  <div class="decrement">-</div>
+                </form>
+                <div>{{ item.quantity }}</div>
+                <form method="post" action="{% url 'add-to-cart' item.item_id %}">
+                  {% csrf_token %}
+                  <div class="increment">+</div>
+                </form>
               </div>
             </div>
-          {% endfor %}
-        {% endif %}
+            <span><i class="far fa-trash-alt"></i></span>
+          </div>
+        </div>
+        {% endfor %}
       </div>
       <div class="btn-checkout">
         <a href=""><button class="btn-item w-100">Checkout</button></a>
       </div>
     </div>
-    {% endif %}
-    {% block main %} {% endblock %}
+    {% endif %} {% block main %} {% endblock %}
     <footer class="footer-container">
-        <div data-aos="fade-up" class="first-footer">
-          <img src="{% static 'image/logo.png' %}"/>
-          <h3>Don't miss a thing</h3>
-          <p>Enter your email below to be the first to know about new collections and product launches.</p>
-          <form action="" method="post">
-            <i class="fal fa-envelope"></i>
-            <input type="text" placeholder="Enter your email">
-            <i class="far fa-long-arrow-alt-right"></i>
-          </form>
-        </div>
-        <ul>
-          <li>About</li>
-          <li><a href="">About us</a></li>
-          <li><a href="">Contact Us</a></li>
-          <li><a href="">Blog</a></li>
-        </ul>
-        <ul>
-          <li>Information</li>
-          <li><a href="">Register</a></li>
-          <li><a href="">Login</a></li>
-          <li><a href="">My Cart</a></li>
-          <li><a href="">Wishlist</a></li>
-        </ul>
-        <ul>
-          <li>Our Store</li>
-          <li>
-            <i class="fab fa-facebook-f me-3"></i>
-            <i class="fab fa-instagram"></i>
-          </li>
-        </ul>
+      <div data-aos="fade-up" class="first-footer">
+        <img src="{% static 'image/logo.png' %}" />
+        <h3>Don't miss a thing</h3>
+        <p>
+          Enter your email below to be the first to know about new collections
+          and product launches.
+        </p>
+        <form action="" method="post">
+          <i class="fal fa-envelope"></i>
+          <input type="text" placeholder="Enter your email" />
+          <i class="far fa-long-arrow-alt-right"></i>
+        </form>
+      </div>
+      <ul>
+        <li>About</li>
+        <li><a href="">About us</a></li>
+        <li><a href="">Contact Us</a></li>
+        <li><a href="">Blog</a></li>
+      </ul>
+      <ul>
+        <li>Information</li>
+        <li><a href="">Register</a></li>
+        <li><a href="">Login</a></li>
+        <li><a href="">My Cart</a></li>
+        <li><a href="">Wishlist</a></li>
+      </ul>
+      <ul>
+        <li>Our Store</li>
+        <li>
+          <i class="fab fa-facebook-f me-3"></i>
+          <i class="fab fa-instagram"></i>
+        </li>
+      </ul>
     </footer>
     <script src="{% static 'dist/main.js' %}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -124,8 +129,8 @@
         offset: 200,
         duration: 1000,
         delay: 300,
-        once: true
-      })
+        once: true,
+      });
     </script>
     {% block script %} {% endblock %}
   </body>
