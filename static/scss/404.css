@@ -1,0 +1,61 @@
+:root {
+  --white: #fff;
+  --black-primary: #000000;
+  --brown: #c67d4e;
+  --border-color: #ddd;
+  --light-gray: #666666;
+  --xs-fs: 12px;
+  --sm-fs: 14px;
+  --md-fs: 16px;
+  --lg-fs: 18px;
+  --fs-heading: 40px;
+  --sm-space: 15px;
+  --md-space: 20px;
+  --lg-space: 25px;
+  --space: 40px;
+  --space: 80px;
+  --space-bottom: 70px;
+  --weight-700: 700;
+  --weight-800: 800;
+  --weight-900: 900;
+  --small-size: 20px;
+  --medium-size: 30px;
+  --large-size: 40px;
+  --primary-shadow: 0px 2px 8px rgba(0, 0, 0, .16);
+  --secondary-shadow: 0px 20px 40px rgba(0, 0, 0, .2);
+  --footer-background: #fbf5ef;
+}
+
+.container__main {
+  margin-top: 100px;
+  min-height: 50vh;
+}
+
+.container__main p {
+  margin: 0;
+}
+
+.container__main p:first-child {
+  font-size: 70px;
+  font-weight: bold;
+  color: var(--brown);
+  letter-spacing: 2px;
+}
+
+.container__main .title_not_found {
+  padding-bottom: var(--lg-space);
+  font-size: var(--lg-fs);
+  font-weight: var(--weight-700);
+  letter-spacing: 1px;
+}
+
+.image-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+/*# sourceMappingURL=404.css.map */

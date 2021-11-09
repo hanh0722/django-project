@@ -1,0 +1,28 @@
+@import './theme/inherit';
+.container__main{
+    margin-top: 100px;
+    min-height: 50vh;
+    p{
+        margin: 0;
+        &:first-child{
+            font-size: 70px;
+            font-weight: bold;
+            color: var(--brown);
+            letter-spacing: 2px;
+        }
+    }
+    .title_not_found{
+        padding-bottom: var(--lg-space);
+        font-size: var(--lg-fs);
+        font-weight: var(--weight-700);
+        letter-spacing: 1px;
+    }
+}
+.image-container{
+    max-width: 700px;
+    margin: 0 auto;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}

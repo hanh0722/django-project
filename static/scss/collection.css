@@ -67,6 +67,7 @@
   color: var(--black-primary) !important;
   font-weight: bold;
   font-size: var(--md-fs);
+  text-transform: capitalize;
 }
 
 .container--collections .grid-products .product-content p {

@@ -13,20 +13,20 @@ def addItemToCart(request, product_id):
     isValidation(request, '/account/login', 'Please login before shopping!')
     customer = Customer.objects.get(user_id=request.user.id)
     item = Item.objects.get(id=product_id)
-    productIsExisted = CartCustomer.objects.filter(item__id=product_id).first()
+    productIsExisted = CartCustomer.objects.filter(item__id=product_id, customer__user__id=request.user.id).first()
     try:
         if not productIsExisted:
             add_item_to_cart = CartCustomer(
                 customer=customer, item=item, quantity=1)
             add_item_to_cart.save()
-            return redirect('/')
+            return redirect('/checkout')
             # save if we dont have
         else:
             quantity_product = productIsExisted.quantity
             CartCustomer.objects.filter(item__id=product_id).update(
                 quantity=quantity_product + 1)
             # update quantity
-            return redirect('/')
+            return redirect('/checkout')
     except Exception as error:
         print(error)
         return redirect('/404')
@@ -43,7 +43,7 @@ def removeItemInCart(request, product_id):
             deleteProduct(product_id)
         else:
             productFilter.update(quantity=quantity_product - 1)
-        return redirect('/')
+        return redirect('/checkout')
     except Exception as error:
         print(error)
         redirect('/404')

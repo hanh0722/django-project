@@ -40,3 +40,10 @@ def index(request):
         'isAuthenticated': userIsAuthenticated,
         'cart_user': cart_user
     })
+
+def NotFound(request):
+    cart_user = getCartOfCustomer(request)
+    return render(request, '404.html', {
+        'isAuthenticated': request.user.is_authenticated,
+        'cart_user': cart_user
+    })

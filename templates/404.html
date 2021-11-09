@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Not Found {% endblock %}
+{% block css %} <link rel="stylesheet" href="{% static '/scss/404.css' %}"> {% endblock %}
+
+{% block main %}
+
+    <main class="container container__main text-center line-down">
+        <p>404</p>
+        <div class="image-container">
+            <img src="{% static 'image/dribbble_1.gif' %}" alt="">
+        </div>
+        <p class="title_not_found">We are sorry, the URL is expired or wrong</p>
+        <a href="{% url 'home_page' %}"><button class="btn-item">Back To Home Page</button></a>
+    </main>
+{% endblock %}
