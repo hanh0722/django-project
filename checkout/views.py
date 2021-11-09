@@ -1,3 +1,4 @@
+from django.contrib.messages.api import error
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from util.isAuthenticated import isAuthenticated
@@ -18,3 +19,27 @@ def index(request):
         'basic_information': request.user,
         'total': total
     })
+
+def success(request):
+    isAuth = isAuthenticated(request)
+    return render(request, 'success.html', {
+        'isAuthenticated': isAuth
+    })
+
+def checkout(request):
+    isAuth = isAuthenticated(request)
+    if not isAuth:
+        messages.warning(request, 'The URL is expired, please login again')
+        return redirect('/account/login')
+    contact = request.POST['contact']
+    name = request.POST['name']
+    address = request.POST['address']
+    city = request.POST['city']
+    phone = request.POST['phone']
+    code = request.POST['code']
+    try:
+        name
+    except Exception as error:
+        print(error)
+        redirect('/404')
+

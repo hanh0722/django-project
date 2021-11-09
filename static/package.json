@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aos": "^2.3.4"
+    "aos": "^2.3.4",
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7"
   }
 }

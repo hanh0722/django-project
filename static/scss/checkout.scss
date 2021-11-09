@@ -65,6 +65,23 @@
         }
     }
 }
+.list-country{
+    height: 200px;
+    overflow: scroll;
+    position: absolute !important;
+    top: 100%;
+    z-index: 10;
+    background: var(--white);
+    line-height: 30px;
+    padding-left: 0;
+    list-style: none;
+    left: 0;
+    padding: 15px;
+    box-sizing: var(--primary-shadow);
+}
+.title-box{
+    margin-bottom: 0 !important;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

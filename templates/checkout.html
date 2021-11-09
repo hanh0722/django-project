@@ -7,27 +7,32 @@
 {% block main %} 
     {% include 'include/header.html' with header_title='Checkout' %}
     <main class="container line-down">
-        <form class="grid-form">
+        <form action="{% url 'submit' %}" method="post" class="grid-form">
+            {% csrf_token %}
             <div class="d-flex flex-column information-user">
                 <h3>User Information</h3>
                 <div class="form--inside">
                     <label for="contact">Contact Information</label>
-                    <input value="{{ basic_information.email }}" type="text" id="contact" placeholder="Email or phone number">
+                    <input value="{{ basic_information.email }}" name="contact" type="text" id="contact" placeholder="Email or phone number" required>
                 </div>
                 <div class="form--inside">
                     <label for="">Shipping Address</label>
-                    <input type="text" id="" placeholder="Name" value="{{ basic_information.last_name }}">
+                    <input type="text" id="" placeholder="Name" value="{{ basic_information.last_name }}" name="name" required>
                     <div class="form-input d-flex flex-column">
-                        <input type="text" placeholder="Address">
-                        <input type="text" placeholder="City">
+                        <input type="text" placeholder="Address" name="address" required>
+                        <input type="text" placeholder="City" name="city" required>
+                        <input type="hidden" value="abc" name="country">
                         <div class="d-flex justify-content-between align-items-center input--name">
-                            <ul class="list--country position-relative">
+                            <div class="list--country position-relative">
                                 <i class="far fa-angle-down"></i>
-                                <li>Country/Region</li>
-                            </ul>
-                            <input type="text" placeholder="Postal Code"/>
+                                <p class="title-box">Country/Region</p>
+                                <!-- <ul class="list-country position-relative">
+                                    
+                                </ul> -->
+                            </div>
+                            <input type="text" placeholder="Postal Code" name="code" required/>
                         </div>
-                        <input type="number" placeholder="Phone Number">
+                        <input type="number" placeholder="Phone Number" name="phone" required>
                     </div>
                 </div>
             </div>
@@ -61,10 +66,14 @@
                         <p>Total</p>
                         <p>${{ total }}</p>
                     </div>
+                    <div class="text-end mt-3">
+                        <button type="submit" class="btn-item">Checkout</button>
+                    </div>
                 </div>
             </div>
         </form>
     </main>
 {% endblock %}
-
-{% block script %} {% endblock %}
+{% block script %}
+    <script src="{% static 'dist/bundle.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title%} Successfully {%endblock %} 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'scss/success-order.css' %}" />
+{% endblock %} 
+
+{% block main %}
+<main class="main-container">
+  <div class="success-animation">
+    <svg
+      class="checkmark"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 52 52"
+    >
+      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+      <path
+        class="checkmark__check"
+        fill="none"
+        d="M14.1 27.2l7.1 7.2 16.7-16.8"
+      />
+    </svg>
+  </div>
+  <div class="container text-center container-message line-down">
+      <h3>Thank you for supporting us!</h3>
+      <p>We received your order and will deliver as soon as possible</p>
+      <p>If you have any question, contact our customer supports</p>
+  </div>
+</main>
+{% endblock %}
