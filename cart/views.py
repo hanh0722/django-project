@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import redirect
 from util.checkIsValidation import isValidation
 from shop.models import Item
@@ -10,26 +11,29 @@ def deleteProduct(productId):
 
 
 def addItemToCart(request, product_id):
-    isValidation(request, '/account/login', 'Please login before shopping!')
-    customer = Customer.objects.get(user_id=request.user.id)
-    item = Item.objects.get(id=product_id)
-    productIsExisted = CartCustomer.objects.filter(item__id=product_id, customer__user__id=request.user.id).first()
-    try:
-        if not productIsExisted:
-            add_item_to_cart = CartCustomer(
-                customer=customer, item=item, quantity=1)
-            add_item_to_cart.save()
-            return redirect('/checkout')
-            # save if we dont have
-        else:
-            quantity_product = productIsExisted.quantity
-            CartCustomer.objects.filter(item__id=product_id).update(
-                quantity=quantity_product + 1)
-            # update quantity
-            return redirect('/checkout')
-    except Exception as error:
-        print(error)
-        return redirect('/404')
+    if request.user.is_authenticated:
+        customer = Customer.objects.get(user_id=request.user.id)
+        item = Item.objects.get(id=product_id)
+        productIsExisted = CartCustomer.objects.filter(item__id=product_id, customer__user__id=request.user.id).first()
+        try:
+            if not productIsExisted:
+                add_item_to_cart = CartCustomer(
+                    customer=customer, item=item, quantity=1)
+                add_item_to_cart.save()
+                return redirect('/checkout')
+                # save if we dont have
+            else:
+                quantity_product = productIsExisted.quantity
+                CartCustomer.objects.filter(item__id=product_id).update(
+                    quantity=quantity_product + 1)
+                # update quantity
+                return redirect('/checkout')
+        except Exception as error:
+            print(error)
+            return redirect('/404')
+    else:
+        messages.warning(request, 'Please login before shopping!')
+        return redirect('/account/login')
 
 
 def removeItemInCart(request, product_id):

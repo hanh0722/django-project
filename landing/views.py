@@ -1,4 +1,5 @@
 from django.db.models.expressions import F
+from django.contrib.auth import logout
 from django.shortcuts import render
 from shop.models import Item
 import random
