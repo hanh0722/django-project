@@ -11,7 +11,7 @@
         <div data-aos="fade-right" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 left-landing">
           <h1 class="d-flex align-items-center"><span>HOT</span> 25% off everything (yes, everything!) 🔥</h2>
           <h2>Why plants make you happy</h1>
-          <a href=""><button class="button">Shop Collection</button></a>
+          <a href="{% url 'collection' %}"><button class="button">Shop Collection</button></a>
         </div>
         <div data-aos="fade-left" class="col-xs-12 col-sm-12 col-md-12 col-lg-6 right-landing">
           <img src="{% static 'image/banner.jpeg' %}" alt="" />
@@ -30,7 +30,7 @@
           <p>With eye-catching annual flowers and foliage you won’t find
             anywhere else, you can mix and match our vibrant container
             gardens to create beautiful gardens of any size.</p>
-          <a href=""><button class="btn-item">Shop Indoor</button></a>
+          <a href="{% url 'collection' %}"><button class="btn-item">Shop Indoor</button></a>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
               <div class="swiper-slide">
                 <img src="{{ product.image.url }}" alt="">
                 <div class="swiper-options">
-                  <a href="">{{ product.title }}</a>
+                  <a style="text-transform: capitalize;" href="{% url 'item_slug' product.slug %}">{{ product.title }}</a>
                   <p>{{ product.price }}</p>
                 </div>
               </div>

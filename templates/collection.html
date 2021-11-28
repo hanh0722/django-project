@@ -14,8 +14,7 @@
                 <div class="image-product position-relative">
                     <img src="{{ product.image.url }}" alt="">
                     <div class="options-product">
-                        <span><i class="fal fa-shopping-cart"></i></span>
-                        <span><i class="fal fa-star"></i></span>
+                        <a href="{% url 'add-to-cart' product.id%}"><span><i class="fal fa-shopping-cart"></i></span></a>
                     </div>
                 </div>
                 <div class="product-content text-center">
