@@ -34,6 +34,11 @@
         <li>
           <a href=""><i class="far fa-star"></i></a>
         </li>
+        {% if isAuthenticated %}
+        <li>
+          <a href="{% url 'logout' %}"><button class="btn-item">Sign out</button></a>
+        </li>
+        {% endif %}
         <!-- <li class="btn-darkmode">
           <span class="button-dark"></span>
           <i class="far fa-moon"></i>

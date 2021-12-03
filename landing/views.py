@@ -1,6 +1,6 @@
 from django.db.models.expressions import F
 from django.contrib.auth import logout
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from shop.models import Item
 import random
 from authorization.models import CartCustomer, Customer
@@ -48,3 +48,7 @@ def NotFound(request):
         'isAuthenticated': request.user.is_authenticated,
         'cart_user': cart_user
     })
+
+def Logout(request):
+    logout(request)
+    return redirect('/account/login')
